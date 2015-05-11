@@ -20,7 +20,7 @@ The software requires Java 8, or any later version of Java.  Below is an example
   String text = "...";
   AnnotationBase annBase = new AnnotationBase(text);
   // Run your sentence segmenter, for example, in the following way.
-  // yourSentSegmenter.run(annBase);
+  // yourSentenceSegmenter.run(annBase);
   List<Sentence> sents = annBase.getSentences();
   Sentence firstSent = sents.get(0);
   Token firstToken = firstSent.getFirstToken();
