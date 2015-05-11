@@ -119,7 +119,7 @@ public class EntityMention extends TokenBasedTextSpan {
   /**
    * Adds the given event mention argument to this event mention.
    * 
-   * @param arg
+   * @param eventArg
    */
   public void addEventArgument(EventArgument eventArg) {
     eventArg.setTo(this);
@@ -131,7 +131,7 @@ public class EntityMention extends TokenBasedTextSpan {
    * mention.
    * 
    * @param role
-   * @param toAnn
+   * @param fromEvm
    */
   public void addEventArgument(String role, EventMention fromEvm) {
     EventArgument arg = new EventArgument(annBase);

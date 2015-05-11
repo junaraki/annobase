@@ -196,10 +196,9 @@ public class TokenBasedTextSpan extends ElementAnnotation {
   /**
    * Returns a mapping from indexes to contextual tokens surrounding this annotation within the
    * sliding window of the given size. The entire annotation is accessed by index 0. For example, if
-   * a sentence consists of 4 tokens "<t1> <t2> <t3> <t4>", this annotation spans <t2> and <t3>, and
-   * the window size is 2, then this method returns a mapping from -1 to <t1>, and one from 1 to
-   * <t4>. If an index is beyond tokens in the sentence, then the mapping does not have such
-   * indexes.
+   * a sentence has 4 tokens "[t1] [t2] [t3] [t4]", this annotation spans [t2] and [t3], and the
+   * window size is 2, then this method returns a mapping from -1 to [t1], and one from 1 to [t4].
+   * If an index is beyond tokens in the sentence, then the mapping does not have such indexes.
    * 
    * @param windowSize
    * @return

@@ -43,9 +43,9 @@ public class Token extends ElementAnnotation {
 
   /**
    * Returns a mapping from indexes to contextual tokens surrounding this token within the sliding
-   * window of the given size. The current token is accessed by index 0. If a sentence is
-   * "<t1> <t2> <t3>", this token is <t2>, and the window size is 2, then this method returns a
-   * mapping from -1 to <t1>, from 0 to <t2>, and from 1 to <t3>. If an index is beyond tokens in
+   * window of the given size. The current token is accessed by index 0. If a sentence has three
+   * tokens "[t1] [t2] [t3]", this token is [t2], and the window size is 2, then this method returns
+   * a mapping from -1 to [t1], from 0 to [t2], and from 1 to [t3]. If an index is beyond tokens in
    * the sentence, then the mapping does not have such indexes.
    * 
    * @param windowSize

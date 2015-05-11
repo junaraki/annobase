@@ -362,6 +362,9 @@ public abstract class ElementAnnotation extends AbstractAnnotation implements
    * 
    * @param anns
    * @return
+   * 
+   * @param anns
+   * @return
    */
   public <T extends ElementAnnotation> boolean hasSameSpanAsOneOf(Collection<T> anns) {
     for (T ann : anns) {

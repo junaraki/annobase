@@ -61,8 +61,8 @@ public interface Graph<V, E> {
    * are not in this graph.
    * 
    * @param edge
-   * @param source
-   * @param dest
+   * @param vertex1
+   * @param vertex2
    */
   public void addEdge(E edge, V vertex1, V vertex2);
 

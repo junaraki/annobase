@@ -79,8 +79,8 @@ public abstract class AbstractGraph<V, E> implements Graph<V, E>, Serializable {
    * are not in this graph.
    * 
    * @param edge
-   * @param source
-   * @param dest
+   * @param vertex1
+   * @param vertex2
    */
   @Override
   public void addEdge(E edge, V vertex1, V vertex2) {

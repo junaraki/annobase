@@ -137,7 +137,7 @@ public class AnnotationBase implements Serializable {
   /**
    * Returns true if this annotation base has any annotations of the given type.
    * 
-   * @param typeName
+   * @param clazz
    * @return
    */
   public <T extends Annotation> boolean hasAnnotation(Class<T> clazz) {
@@ -186,7 +186,7 @@ public class AnnotationBase implements Serializable {
   /**
    * Returns a list of annotations of the given type in this annotation base.
    * 
-   * @param typeName
+   * @param clazz
    * @return
    */
   @SuppressWarnings({ "cast", "unchecked" })
