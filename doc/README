@@ -9,7 +9,7 @@ Table of contents
 
 1. Introduction
 Annobase is a light-weight but comprehensive representation for text annotation
-with Java. A main goal of the software is to provide a human-readable
+implemented in Java. A main goal of the software is to provide a human-readable
 representation for text annotation that is easy to parse and extend, while also
 providing linguistically-motivated sets of annotations and operations for them.
 
