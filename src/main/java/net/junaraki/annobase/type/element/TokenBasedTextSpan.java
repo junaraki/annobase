@@ -177,8 +177,6 @@ public class TokenBasedTextSpan extends ElementAnnotation {
    * Returns a list of tokens associated with the given annotation. Mostly, these tokens are the
    * ones covered by the annotation, but they could be tokens that covers the annotation.
    * 
-   * @param aJCas
-   * @param ann
    * @return
    */
   public List<Token> findAssociatedTokens() {
