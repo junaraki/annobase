@@ -1,4 +1,4 @@
-Libtree version 1.0.0
+Annobase version 1.0.1
 
 Copyright (C) 2015 Jun Araki
 
@@ -17,10 +17,10 @@ providing linguistically-motivated sets of annotations and operations for them.
 The software requires Java 8, or any later version of Java.  Below is an example
  of using Annobase.
 
-  String text = "...";
+  String text = "This is a sentence. This is another sentence";
   AnnotationBase annBase = new AnnotationBase(text);
-  // Run your sentence segmenter, for example, in the following way.
-  // yourSentenceSegmenter.run(annBase);
+  // Run your sentence segmenter and tokenizer, and set sentences and tokens to
+  // the annotation base instance.
   List<Sentence> sents = annBase.getSentences();
   Sentence firstSent = sents.get(0);
   Token firstToken = firstSent.getFirstToken();

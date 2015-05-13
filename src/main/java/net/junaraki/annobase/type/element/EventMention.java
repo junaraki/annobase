@@ -244,7 +244,7 @@ public class EventMention extends TokenBasedTextSpan {
       }
     }
     // Check based on clusters
-    if (event.getEventMentions().contains(evm)) {
+    if (event != null && event.getEventMentions().contains(evm)) {
       return true;
     }
 

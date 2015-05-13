@@ -17,7 +17,7 @@ public abstract class AbstractReader implements Reader {
    * @return
    */
   @Override
-  public abstract AnnotationBase read(File file);
+  public abstract AnnotationBase read(File file) throws Exception;
 
   /**
    * Reads a list of the given files, and returns a list of annotation base instances.
@@ -26,7 +26,7 @@ public abstract class AbstractReader implements Reader {
    * @return
    */
   @Override
-  public List<AnnotationBase> read(List<File> files) {
+  public List<AnnotationBase> read(List<File> files) throws Exception {
     List<AnnotationBase> annBases = new ArrayList<AnnotationBase>();
     for (File file : files) {
       annBases.add(read(file));
@@ -43,8 +43,9 @@ public abstract class AbstractReader implements Reader {
    * @param recursive
    * @return
    */
-  public List<AnnotationBase> read(File directory, String[] extensions, boolean recursive) {
-    return read(new ArrayList<File>(FileUtils.listFiles(directory, extensions, recursive)));
+  @Override
+  public List<File> collect(File directory, String[] extensions, boolean recursive) {
+    return new ArrayList<File>(FileUtils.listFiles(directory, extensions, recursive));
   }
 
 }

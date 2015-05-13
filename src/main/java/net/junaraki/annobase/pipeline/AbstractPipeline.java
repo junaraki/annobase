@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.junaraki.annobase.AnnotationBase;
-import net.junaraki.annobase.ann.Annotator;
 import net.junaraki.annobase.io.Reader;
 import net.junaraki.annobase.io.Writer;
+import net.junaraki.annobase.process.Processor;
 
 public abstract class AbstractPipeline implements Pipeline {
 
-  private Reader reader;
+  protected Reader reader;
 
-  private Writer writer;
+  protected Writer writer;
 
-  private List<Annotator> annotators;
+  protected List<Processor> processors;
 
   /**
    * Public constructor.
    */
   public AbstractPipeline() {
-    annotators = new ArrayList<Annotator>();
+    processors = new ArrayList<Processor>();
   }
 
   /**
@@ -33,16 +33,16 @@ public abstract class AbstractPipeline implements Pipeline {
   public AbstractPipeline(Reader reader, Writer writer) {
     this.reader = reader;
     this.writer = writer;
-    annotators = new ArrayList<Annotator>();
+    processors = new ArrayList<Processor>();
   }
 
   /**
    * Public constructor.
    * 
-   * @param annotators
+   * @param processors
    */
-  public AbstractPipeline(List<Annotator> annotators) {
-    this.annotators = annotators;
+  public AbstractPipeline(List<Processor> processors) {
+    this.processors = processors;
   }
 
   /**
@@ -50,12 +50,12 @@ public abstract class AbstractPipeline implements Pipeline {
    * 
    * @param reader
    * @param writer
-   * @param annotators
+   * @param processors
    */
-  public AbstractPipeline(Reader reader, Writer writer, List<Annotator> annotators) {
+  public AbstractPipeline(Reader reader, Writer writer, List<Processor> processors) {
     this.reader = reader;
     this.writer = writer;
-    this.annotators = annotators;
+    this.processors = processors;
   }
 
   /**
@@ -64,11 +64,14 @@ public abstract class AbstractPipeline implements Pipeline {
    * @param inputFiles
    * @param outputFiles
    */
-  public void run(List<File> inputFiles, List<File> outputFiles) {
+  public void run(List<File> inputFiles, List<File> outputFiles) throws Exception {
     List<AnnotationBase> annBases = reader.read(inputFiles);
     for (AnnotationBase annBase : annBases) {
-      for (Annotator annotator : annotators) {
-        annotator.annotate(annBase);
+      String docId = annBase.getSourceDocument().getId();
+      System.out.println(String.format("[INFO] Processing document %s", docId));
+
+      for (Processor processor : processors) {
+        processor.process(annBase);
       }
     }
     writer.write(annBases, outputFiles);
@@ -90,22 +93,22 @@ public abstract class AbstractPipeline implements Pipeline {
     this.writer = writer;
   }
 
-  public List<Annotator> getAnnotators() {
-    return annotators;
+  public List<Processor> getProcessors() {
+    return processors;
   }
 
-  public void setAnnotators(List<Annotator> annotators) {
-    this.annotators = annotators;
+  public void setProcessors(List<Processor> processors) {
+    this.processors = processors;
   }
 
   /**
-   * Adds the given annotator to this pipeline.
+   * Adds the given processor to this pipeline.
    * 
-   * @param annotator
+   * @param processor
    */
   @Override
-  public void addAnnotator(Annotator annotator) {
-    annotators.add(annotator);
+  public void addProcessor(Processor processor) {
+    processors.add(processor);
   }
 
 }

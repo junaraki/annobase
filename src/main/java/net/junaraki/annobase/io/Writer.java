@@ -13,7 +13,7 @@ public interface Writer {
    * @param annBase
    * @param file
    */
-  public void write(AnnotationBase annBase, File file);
+  public void write(AnnotationBase annBase, File file) throws Exception;
 
   /**
    * Writes a list of the given annotation base instances to a list of the given files.
@@ -21,6 +21,6 @@ public interface Writer {
    * @param annBases
    * @param files
    */
-  public void write(List<AnnotationBase> annBases, List<File> files);
+  public void write(List<AnnotationBase> annBases, List<File> files) throws Exception;
 
 }

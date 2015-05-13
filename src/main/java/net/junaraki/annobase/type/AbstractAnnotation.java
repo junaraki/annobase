@@ -20,6 +20,9 @@ public abstract class AbstractAnnotation implements Annotation, Serializable {
   /** Optional field: ID of this annotation, implemented as an integer */
   protected int id;
 
+  /** Optional field: annotator ID for this annotation */
+  protected String annotatorId;
+
   /** Lazily initialized, cached hashCode */
   protected volatile int hashCode;
 
@@ -107,6 +110,14 @@ public abstract class AbstractAnnotation implements Annotation, Serializable {
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  public String getAnnotatorId() {
+    return annotatorId;
+  }
+
+  public void setAnnotatorId(String annotatorId) {
+    this.annotatorId = annotatorId;
   }
 
 }

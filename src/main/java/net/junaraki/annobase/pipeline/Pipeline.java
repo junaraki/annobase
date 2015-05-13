@@ -1,14 +1,14 @@
 package net.junaraki.annobase.pipeline;
 
-import net.junaraki.annobase.ann.Annotator;
+import net.junaraki.annobase.process.Processor;
 
 public interface Pipeline {
 
   /**
-   * Adds the given annotator to this pipeline.
+   * Adds the given processor to this pipeline.
    * 
-   * @param annotator
+   * @param processor
    */
-  public void addAnnotator(Annotator annotator);
+  public void addProcessor(Processor processor);
 
 }

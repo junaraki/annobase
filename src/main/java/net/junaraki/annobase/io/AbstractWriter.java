@@ -16,7 +16,7 @@ public abstract class AbstractWriter implements Writer {
    * @param file
    */
   @Override
-  public abstract void write(AnnotationBase annBase, File file);
+  public abstract void write(AnnotationBase annBase, File file) throws Exception;
 
   /**
    * Writes a list of the given annotation base instances to a list of the given files.
@@ -25,7 +25,7 @@ public abstract class AbstractWriter implements Writer {
    * @param files
    */
   @Override
-  public void write(List<AnnotationBase> annBases, List<File> files) {
+  public void write(List<AnnotationBase> annBases, List<File> files) throws Exception {
     for (int i = 0; i < files.size(); i++) {
       write(annBases.get(i), files.get(i));
     }
