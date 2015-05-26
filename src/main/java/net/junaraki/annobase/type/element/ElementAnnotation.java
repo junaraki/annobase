@@ -162,6 +162,10 @@ public abstract class ElementAnnotation extends AbstractAnnotation implements
     return spans.get(spans.size() - 1).getEnd();
   }
 
+  public TextSpan getTextSpan() {
+    return new TextSpan(annBase, getBegin(), getEnd());
+  }
+
   /**
    * Adds a span with the given offsets to this annotation.
    * 
@@ -170,6 +174,14 @@ public abstract class ElementAnnotation extends AbstractAnnotation implements
    */
   public void addSpan(int begin, int end) {
     spans.add(new Span(begin, end));
+  }
+
+  public Span getFirstSpan() {
+    return spans.get(0);
+  }
+
+  public Span getLastSpan() {
+    return spans.get(numSpans() - 1);
   }
 
   public List<Span> getSpans() {
